@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    var numbers = (int[])ViewData["data"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">File Upload</h1>
+</div>
+<div class="container">
+    <div class="mb-3 mt-3">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label">Upload File</label>
+                <input type="file" name="file" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+    </div>
+   <div>
+        @if (numbers != null)
+        {
+            <table border="1">
+            @foreach (var number in numbers)
+            {
+               <tr>
+                <td>
+                     <p>@number</p>
+                </td>
+               </tr>
+            }
+            </table>
+       }
+   </div>
+</div>
